@@ -1,4 +1,10 @@
 FROM tensorflow/tensorflow:latest-gpu
 
-RUN pip install -r byol/requirements.txt
+WORKDIR /app
+
+COPY requirements.txt requirements.txt
+
+RUN pip install -r requirements.txt
 RUN pip install optax
+
+COPY . .
